@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pluggable type="theme" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://schemas.habariproject.org/Pluggable-1.3.xsd">
+	<name>Chris, mk II</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	
+	<author url="http://chrismeller.com/">Chris Meller</author>
+	
+	<version>2.0</version>
+	<url>http://chrismeller.com/</url>
+	<description><![CDATA[Rawrrr]]></description>
+	
+	<template_engine>rawphpengine</template_engine>
+
+	<areas>
+		<area name="sidebar">
+			<description><![CDATA[Sidebar]]></description>
+		</area>
+	</areas>
+</pluggable>
