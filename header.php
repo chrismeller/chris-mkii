@@ -22,7 +22,17 @@
 
 		<link rel="stylesheet" type="text/css" href="<?php Site::out_url( 'theme' ); ?>/style.css" media="screen">
 		
-		<link rel="Shortcut Icon" href="<?php Site::out_url( 'theme' ); ?>/favicon.ico">
+		<?php 
+		
+			if ( isset( $_SERVER['SERVER_NAME'] ) && $_SERVER['SERVER_NAME'] == 'localhost' ) {
+				$favicon = 'favicon-grey.ico';
+			}
+			else {
+				$favicon = 'favicon.ico';
+			}
+		
+		?>
+		<link rel="Shortcut Icon" href="<?php Site::out_url( 'theme' ); ?>/images/<?php echo $favicon; ?>">
 		
 		<script type="text/javascript">
 			var CWM = {}
@@ -53,7 +63,7 @@
 				
 				<div id="menu" class="prepend-2 span-8" role="navigation">
 					<?php
-						// get page menu
+						$theme->area('menu');
 					?>
 				</div>
 				
