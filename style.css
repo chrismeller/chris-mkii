@@ -43,7 +43,7 @@ body {
 	text-shadow: none;
 }
 
-#header #search .left {
+#header #search .left-round {
 	width: 20px;
 	height: 19px;
 	
@@ -52,7 +52,7 @@ body {
 	float: left;
 }
 
-#header #search .right {
+#header #search .right-round {
 	width: 10px;
 	height: 19px;
 	
