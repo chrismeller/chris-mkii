@@ -26,11 +26,11 @@
 		public function more ( $post, $length = 55 ) {
 			
 			if ( $this->request->display_entry || $this->request->display_page ) {
-				$return = $post->content;
+				$return = $post->content_out;
 			}
 			else {
 				
-				$return = strip_tags( $post->content, 'p' );
+				$return = strip_tags( $post->content_out, 'p' );
 				
 				$return = MultiByte::str_replace( '</p>', ' ', $return );
 				$return = MultiByte::str_replace( '<p>', '', $return );
