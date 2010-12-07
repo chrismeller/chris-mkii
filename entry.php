@@ -1,7 +1,26 @@
 <?php if ( !defined( 'HABARI_PATH' ) ) { die('No direct access'); } ?>
-<div id="post-<?php echo $post->id; ?>" class="<?php echo $theme->post_class( $post ); ?>">
+
+<?php 
+
+	if ( !isset( $i ) ) {
+		$i = 1;
+	}
+	
+	if ( $i == 1 ) {
+		$class = 'first';
+	}
+	
+	if ( $i == count( $posts ) ) {
+		$class = 'last';
+	}
+	
+	$i++;
+
+?>
+
+<div id="post-<?php echo $post->id; ?>" class="<?php echo $theme->post_class( $post, $class ); ?>">
 	<h2 class="entry-title">
-		<a href="<?php echo $post->permalink; ?>" title="<?php echo HTML::chars( _t( 'Permalink to %s', array( $post->title ) ) ); ?>" rel="bookmark"><?php echo HTML::chars( $post->title ); ?></a>
+		<a href="<?php echo $post->permalink; ?>" title="<?php echo HTML::chars( _t( 'Permalink to %s', array( $post->title ) ) ); ?>" rel="bookmark"><?php echo $post->title_out; ?></a>
 	</h2>
 	
 	<div class="entry-meta">
