@@ -32,7 +32,7 @@
 							}
 							
 							$date = HabariDateTime::date_create()->set_date( $archive->year, $archive->month, 1 );
-							$url == URL::get( 'display_entries_by_date', array( 'year' => $date->format('Y'), 'month' => $date->format('m') ) );
+							$url = URL::get( 'display_entries_by_date', array( 'year' => $date->format('Y'), 'month' => $date->format('m') ) );
 							
 							$text = $date->format('F') . ', ' . $date->format('Y');
 							
