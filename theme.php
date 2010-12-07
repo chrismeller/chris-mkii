@@ -44,7 +44,7 @@
 					$return = implode( ' ', $words );
 					
 					// build the more link
-					$link = '<a href="' . $post->permalink . '" title="' . HTML::chars( _t( 'Read the rest of %s', array( $post->title ) ) ) . '">' . _t( 'Continue reading &rarr;' ) . '</a>';
+					$link = '<a href="' . $post->permalink . '" title="' . HTML::chars( _t( 'Read the rest of %s', array( $post->title ) ) ) . '">' . _t( 'Continue reading&nbsp;&rarr;' ) . '</a>';
 					
 					$return .= ' ... ' . $link;
 					
