@@ -1,5 +1,11 @@
 <?php if ( !defined( 'HABARI_PATH' ) ) { die('No direct access'); } ?>
 
+					</div> <?php /* div.wrap */ ?>
+
+				</div> <?php /* div#content */ ?>
+				
+				<?php $theme->display('sidebar'); ?>
+
 			</div> <?php /* div#main */ ?>
 			
 			<div id="footer" class="span-24 last" role="contentinfo">
@@ -10,7 +16,7 @@
 					</div>
 					
 					<div id="the-moose" class="span-2 last">
-						<img src="<?php echo 'foo'; ?>/images/the_moose.png" alt="Moose" title="Mooses &lt;3!">
+						<img src="<?php Site::out_url( 'theme' ); ?>/images/the_moose.png" alt="Moose" title="Mooses &lt;3!">
 					</div>
 					
 				</div> <?php /* div#colophon */ ?>

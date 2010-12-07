@@ -24,6 +24,11 @@
 		
 		<link rel="Shortcut Icon" href="<?php Site::out_url( 'theme' ); ?>/favicon.ico">
 		
+		<script type="text/javascript">
+			var CWM = {}
+			CWM.template_directory = '<?php Site::out_url( 'theme' ); ?>';
+		</script>
+		
 		<?php $theme->header(); ?>
 
 	</head>
@@ -52,7 +57,7 @@
 					?>
 				</div>
 				
-				<div id="search" class="prepend-1 span-5 last"></div>
+				<div id="search" class="prepend-1 span-5 last">
 					<?php
 						// get search form
 					?>
@@ -67,4 +72,7 @@
 			</div>
 			
 			<div id="main" class="span-24 last">
+			
+				<div id="content" class="span-18" role="main">
+					<div class="wrap">
 			
