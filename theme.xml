@@ -12,6 +12,9 @@
 	<template_engine>rawphpengine</template_engine>
 
 	<areas>
+		<area name="menu">
+			<description><![CDATA[Navigation Menu]]></description>
+		</area>
 		<area name="sidebar">
 			<description><![CDATA[Sidebar]]></description>
 		</area>
