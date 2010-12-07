@@ -250,18 +250,18 @@ body {
 	margin-bottom: 75px;
 }
 
-.widget-area {
+.block-area {
 
 }
 
-.widget-area ul {
+.block-area ul {
 	list-style: none;
 	
 	margin: 0;
 	padding: 0;
 }
 
-.widget-container {
+.block-container {
 	background-color: #fbfdff;
 	border: 1px solid #e0e9f0;
 	
@@ -271,7 +271,7 @@ body {
 	margin-bottom: 1em;
 }
 
-h3.widget-title {
+h3.block-title {
 	color: #3a6c93;
 	font-weight: bold;
 	
