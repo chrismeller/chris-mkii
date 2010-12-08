@@ -178,6 +178,10 @@ body {
 	color: #333333;	
 }
 
+#content .post-nav {
+	margin-bottom: 1em;
+}
+
 #content h2.entry-title {
 	margin-bottom: 0;
 	line-height: 1em;
@@ -324,6 +328,12 @@ h3.block-title {
 	-webkit-border-radius: 10px;
 	
 	-moz-user-select: none;
+}
+
+#flickr li {
+	display: inline;
+
+	padding-right: 10px;
 }
 
 #sidebar a {
