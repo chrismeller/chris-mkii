@@ -271,6 +271,37 @@
 			
 		}
 		
+		public function act_display_archives ( ) {
+
+			$this->page = Controller::get_var( 'page', 1 );
+			
+			$cache_name = 'cwm:archives_page_' . $this->page;
+			
+			if ( Cache::has( $cache_name ) ) {
+				$posts = Cache::get( $cache_name );
+			}
+			else {
+				
+				// get the posts
+				$posts = Posts::get( array( 'content_type' => Post::type( 'entry' ), 'status' => Post::status( 'published' ), 'limit' => 25, 'page' => $this->page ) );
+				
+				Cache::set( $cache_name, $posts, HabariDateTime::HOUR * 12 );
+				
+			}
+			
+			$paramarray = array(
+				'fallback' => array(
+					'page.archives',
+					'page.multiple'
+				),
+				'posts' => $posts,
+				'user_filters' => array(),
+			);
+			
+			return $this->act_display( $paramarray );
+			
+		}
+		
 	}
 	
 ?>
