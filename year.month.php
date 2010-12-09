@@ -3,11 +3,9 @@
 
 	$theme->display('header');
 	
-	$date = HabariDateTime::date_create()->set_date( $year, $month, 1 )->format('F, Y');
-	
 	?>
 	
-		<h1><?php echo _t( 'Monthly Archives: %s', array( $date ) ); ?></h1>
+		<h1><?php echo $page_title; ?></h1>
 	
 	<?php
 	
