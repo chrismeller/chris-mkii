@@ -1,0 +1,37 @@
+#content #archives_page {
+	font-size: 1.3em;
+}
+
+#content #archives_page .day,
+#content #archives_page .post {
+	border-bottom: 1px solid #d0d9ed;
+}
+
+#content #archives_page .month {
+	margin-bottom: 1.1em;
+	border-bottom: 1px solid #5083ae;
+}
+
+#content #archives_page .year {
+	margin-bottom: 1.2em;
+}
+
+#content #archives_page .post {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+#content #archives_page a {
+	color: #0d72ba;
+	text-decoration: none;
+}
+
+#content #archives_page .month {
+	text-transform: uppercase;
+}
+
+#content #archives_page .year,
+#content #archives_page .month,
+#content #archives_page .day {
+	color: #a0a0a0;
+}

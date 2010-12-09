@@ -6,40 +6,59 @@
 	?>
 	
 		<h1><?php echo $page_title; ?></h1>
-	
-	<?php
-	
-	echo '<ul id="archives" class="years">';
-	foreach ( $archives as $year => $months ) {
 		
-		echo '<li class="year">' . $year;
+		<div id="archives_page">
+	
+		<?php
 		
-		echo '<ul class="months">';
-		foreach ( $months as $month => $days ) {
+			$last_year = null;
+			$last_month = null;
+			$last_day = null;
 			
-			echo '<li class="month">' . $month;
-			
-			echo '<ul class="days">';
-			foreach ( $days as $day => $posts ) {
+			foreach ( $posts as $post ) {
 				
-				echo '<li class="day">' . $day;
+				// pull out the values
+				$year = $post->pubdate->format('Y');
+				$month = $post->pubdate->format('M');
+				$day = $post->pubdate->format('d');
 				
-				echo '<ul class="posts">';
-				foreach ( $posts as $post ) {
-					
-					echo '<li class="post"><a href="' . $post->permalink . '" title="' . _t( 'View post %s', array( $post->title ) ) . '">' . $post->title . '</a></li>';
-					
+				// figure out what to display
+				if ( $last_year == $year && $last_month == $month && $last_day == $day ) {
+					$year = '&nbsp;';
+					$month = '&nbsp;';
+					$day = '&nbsp;';
 				}
-				echo '</ul>';
+				else if ( $last_year == $year && $last_month == $month ) {
+					$year = '&nbsp;';
+					$month = '&nbsp;';
+				}
+				else if ( $last_year == $year ) {
+					$year = '&nbsp;';
+				}
+				
+				?>
+				
+					<div class="span-17 archives-line last">
+						<div class="year span-1"><?php echo $year; ?></div>
+						<div class="month span-1"><?php echo $month; ?></div>
+						<div class="day span-1"><?php echo $day; ?></div>
+						<div class="post span-14 last"><a href="<?php echo $post->permalink; ?>" title="<?php echo _t( 'View post %s', array( $post->title ) ); ?>"><?php echo $post->title; ?></a></div>
+					</div>
+				
+				<?php
+				
+				// set the last values we looked at for the next loop
+				$last_year = $post->pubdate->format('Y');
+				$last_month = $post->pubdate->format('M');
+				$last_day = $post->pubdate->format('d');
 				
 			}
-			echo '</ul>';
-			
-		}
-		echo '</ul>';
 		
-	}
-	echo '</ul>';
+		?>
+		
+	</div>
+	
+	<?php
 	
 	$theme->display( 'page_navigation' );
 	

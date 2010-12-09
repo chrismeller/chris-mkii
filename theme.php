@@ -323,6 +323,9 @@
 			$this->title = 'Archives';
 			$this->page_title = 'Archives';
 			
+			// add the archives stylesheet to the stack
+			Stack::add( 'template_stylesheet', array( Site::get_url( 'theme' ) . '/style-archives.css', 'screen' ) );
+			
 			$cache_name = 'cwm:archives_page_' . $this->page;
 			
 			if ( Cache::has( $cache_name ) ) {
