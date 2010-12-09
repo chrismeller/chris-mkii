@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html">
-		<title><?php echo $theme->page_title(); ?></title>
+		<title><?php echo $title; ?></title>
 		
 		<meta name="generator" content="Habari <?php echo Version::HABARI_VERSION; ?>">
 		

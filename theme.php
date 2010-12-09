@@ -65,17 +65,62 @@
 				$this->search_criteria = _t('Search');
 			}
 			
+			$site_title = Options::get('title');
+			
+			// if a title has been set elsewhere, don't overwrite it
+			if ( isset( $this->title ) ) {
+				// nothing
+			}
+			else if ( ( $this->request->display_entry || $this->request->display_page ) && isset( $this->post ) ) {
+				$this->title = $this->post->title . ' | ' . $site_title;
+			}
+			else if ( $this->request->display_entries_by_date ) {
+				
+				// if it's year and month
+				if ( isset( $this->year ) && isset( $this->month ) ) {
+					$date = HabariDateTime::date_create()->set_date( $this->year, $this->month, 1 )->format( 'F, Y' );
+					$this->page_title = 'Monthly Archives: ' . $date;
+					$this->title = $this->page_title . ' | ' . $site_title;
+				}
+				else if ( isset( $this->year ) ) {
+					$date = HabariDateTime::date_create()->set_date( $this->year, 1, 1 )->format( 'Y' );
+					$this->page_title = 'Yearly Archives: ' . $date;
+					$this->title = $this->page_title . ' | ' . $site_title;
+				}
+				
+			}
+			else if ( $this->request->display_entries_by_tag ) {
+				$this->page_title = _t( 'Posts tagged with "%s"', array( $this->tag ) );
+				$this->title = $this->tag . ' | ' . $site_title;
+			}
+			else {
+				// something we don't recognize
+				$this->title = $site_title;
+			}
+			
 		}
 		
 		public function theme_page_title ( ) {
 			
+			ob_end_clean();
+			Utils::debug( $this->request );
+			die();
+			
 			$title = Options::get( 'title' );
 			
-			if ( $this->request->display_entry && isset( $this->post ) ) {
+			// if there's a custom title set (like for the archives page), ignore everything else
+			if ( isset( $this->title ) ) {
+				$title = $this->title . ' | ' . $title;
+			}
+			else if ( $this->request->display_entry && isset( $this->post ) ) {
 				$title = $this->post->title . ' | ' . $title;
 			}
 			else if ( $this->request->display_page && isset( $this->post ) ) {
 				$title = $this->post->title . ' | ' . $title;
+			}
+			else if ( $this->request->display_entries_by_date ) {
+				$date = HabariDateTime::date_create()->set_date( $this->year, $this->month, 1 )->format( 'F, Y' );
+				$title = $date . ' Archives | ' . $title;
 			}
 			
 			return $title;
@@ -274,6 +319,8 @@
 		public function act_display_archives ( ) {
 
 			$this->page = Controller::get_var( 'page', 1 );
+			
+			$this->title = 'Archives';
 			
 			$cache_name = 'cwm:archives_page_' . $this->page;
 			
