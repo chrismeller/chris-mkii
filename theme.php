@@ -321,6 +321,7 @@
 			$this->page = Controller::get_var( 'page', 1 );
 			
 			$this->title = 'Archives';
+			$this->page_title = 'Archives';
 			
 			$cache_name = 'cwm:archives_page_' . $this->page;
 			
@@ -335,6 +336,13 @@
 				Cache::set( $cache_name, $posts, HabariDateTime::HOUR * 12 );
 				
 			}
+			
+			$archives = array();
+			foreach ( $posts as $post ) {
+				$archives[ $post->pubdate->format('Y') ][ $post->pubdate->format('m') ][ $post->pubdate->format('d') ][] = $post;
+			}
+			
+			$this->archives = $archives;
 			
 			$paramarray = array(
 				'fallback' => array(
