@@ -22,10 +22,10 @@
 						foreach ( $content->archives as $archive ) {
 							
 							if ( $i == 1 ) {
-								$class = 'class="first"';
+								$class = 'class="first-child"';
 							}
 							else if ( $i == count( $content->archives ) ) {
-								$class = 'class="last"';
+								$class = 'class="last-child"';
 							}
 							else {
 								$class = '';

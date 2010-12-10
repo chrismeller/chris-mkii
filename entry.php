@@ -7,11 +7,11 @@
 	}
 	
 	if ( $i == 1 ) {
-		$class = 'first';
+		$class = 'first-child';
 	}
 	
 	if ( $i == count( $posts ) ) {
-		$class = 'last';
+		$class = 'last-child';
 	}
 	
 	$i++;

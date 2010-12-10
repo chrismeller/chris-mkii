@@ -243,7 +243,7 @@ body {
 	border-bottom: 1px solid #efefef;
 }
 
-#content .post.last {
+#content .post.last-child {
 	border-bottom: none;
 }
 
@@ -297,7 +297,7 @@ h3.block-title {
 	padding-bottom: 5px;
 }
 
-#archives li.last {
+#archives li.last-child {
 	border-bottom: none;
 	padding-bottom: 8px;
 }
