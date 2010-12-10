@@ -20,6 +20,7 @@
 					</div>
 					
 				</div> <?php /* div#colophon */ ?>
+			</div>
 			
 		</div> <?php /* div#page */ ?>
 		
