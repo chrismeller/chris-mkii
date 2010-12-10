@@ -2,36 +2,51 @@
 	font-size: 1.3em;
 }
 
-#content #archives_page .day,
-#content #archives_page .post {
-	border-bottom: 1px solid #d0d9ed;
+#content #archives_page ul {
+	list-style: none;
+}
+#content #archives_page .years:last-child,
+#content #archives_page .months:last-child,
+#content #archives_page .days:last-child,
+#content #archives_page .posts:last-child {
+	border-bottom: none;
 }
 
-#content #archives_page .month {
-	margin-bottom: 1.1em;
-	border-bottom: 1px solid #5083ae;
+#content #archives_page .month,
+#content #archives_page .day {
+	color: #a0a0a0;
 }
 
 #content #archives_page .year {
 	margin-bottom: 1.2em;
 }
 
-#content #archives_page .post {
-	margin-bottom: 0;
-	padding-bottom: 0;
-}
-
-#content #archives_page a {
-	color: #0d72ba;
-	text-decoration: none;
+#content #archives_page .months {
+	padding-bottom: .5em;
+	margin-bottom: .5em;
+	border-bottom: 1px solid #5083ae;
 }
 
 #content #archives_page .month {
 	text-transform: uppercase;
 }
 
-#content #archives_page .year,
-#content #archives_page .month,
-#content #archives_page .day {
-	color: #a0a0a0;
+#content #archives_page .days {
+	padding-bottom: .5em;
+	margin-bottom: .5em;
+	border-bottom: 1px solid #d0d9ed;
+}
+
+#content #archives_page .posts {
+}
+
+#content #archives_page .post {
+	margin-bottom: 0;
+	padding-bottom: 0;
+	text-transform: none;
+}
+
+#content #archives_page a {
+	
+	text-decoration: none;
 }
