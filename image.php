@@ -121,6 +121,24 @@
 			'width' => 950,
 			'height' => 250,
 		),
+		array(
+			'img' => 'images/headers/header_cliffs_chapel.jpg',
+			'flickr' => 'http://www.flickr.com/photos/mellertime/5248367816/',
+			'width' => 950,
+			'height' => 250,
+		),
+		array(
+			'img' => 'images/headers/header_cliffs_flag.jpg',
+			'flickr' => 'http://www.flickr.com/photos/mellertime/5248373366/',
+			'width' => 950,
+			'height' => 250,
+		),
+		array(
+			'img' => 'images/headers/header_water_wheel.jpg',
+			'flickr' => 'http://www.flickr.com/photos/mellertime/5248355922/',
+			'width' => 950,
+			'height' => 250,
+		),
 	);
 	
 	// pick a header
