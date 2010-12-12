@@ -360,6 +360,12 @@
 			
 		}
 		
+		public function act_search ( $user_filters = array() ) {
+			
+			return parent::act_search( array( 'content_type' => Post::type( 'entry' ) ) );
+			
+		}
+		
 	}
 	
 ?>
