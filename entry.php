@@ -15,6 +15,14 @@
 	}
 	
 	$i++;
+	
+	// figure out the tags we should display
+	if ( count( $post->tags ) > 0 ) {
+		$tags = _t( 'Tagged %s', array( Format::tag_and_list( $post->tags, ', ', ', ' ) ) );
+	}
+	else {
+		$tags = null;
+	}
 
 ?>
 
@@ -34,8 +42,16 @@
 	</div>
 	
 	<div class="entry-utility">
-		<span class="tags"><?php echo _t( 'Tagged %s', array( Format::tag_and_list( $post->tags, ', ', ', ' ) ) ); ?></span>
-		<span class="meta-sep"> | </span>
+		<?php 
+		
+			if ( $tags != null ) {
+				?>
+					<span class="tags"><?php echo $tags; ?></span>
+					<span class=meta-sep"> | </span>
+				<?php
+			}
+		
+		?>
 		<span class="comments-link"><?php echo $theme->comments_link( $post ); ?></span>
 		<?php 
 		
