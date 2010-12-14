@@ -247,6 +247,52 @@ body {
 	border-bottom: none;
 }
 
+#page-selector {
+	margin-bottom: 1em;
+}
+
+#page-selector span.sep {
+	display: block;
+	float: left;
+
+	/* bump it down so it's level with the A text */
+	padding-top: 5px;
+	margin-top: 5px;
+}
+
+#page-selector a {
+	display: block;
+	float: left;
+
+	padding-left: 10px;
+	padding-right: 10px;
+
+	padding-top: 3px;
+	padding-bottom: 3px;
+	
+	margin: 3px;
+
+	color: #ffffff;
+	font-weight: bold;
+	text-decoration: none;
+	
+	background-color: #3988af;
+	border: 1px solid #1c5d7e;
+	border: 1px solid #337698;
+
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+#page-selector a.current-page {
+	background-color: #5395c0;
+}
+
+#page-selector a:hover {
+	color: #ffffff;
+	background-color: #5395c0;
+}
+
 #sidebar {
 	width: 228px;
 	
