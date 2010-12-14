@@ -13,11 +13,11 @@
 		<link rel="edit" type="application/atom+xml" title="Atom Publishing Protocol" href="<?php URL::out( 'atompub_servicedocument' ); ?>">
 		<link rel="EditURI" type="application/rsd+xml" title="RSD" href="<?php URL::out( 'rsd' ); ?>">
 		
-		<link rel="stylesheet" type="text/css" href="<?php Site::out_url( '3rdparty' ); ?>/blueprint/screen.css" media="screen, projection">
-		<link rel="stylesheet" type="text/css" href="<?php Site::out_url( '3rdparty' ); ?>/blueprint/print.css" media="print">
+		<link rel="stylesheet" type="text/css" href="<?php Site::out_url( 'vendor' ); ?>/blueprint/screen.css" media="screen, projection">
+		<link rel="stylesheet" type="text/css" href="<?php Site::out_url( 'vendor' ); ?>/blueprint/print.css" media="print">
 
 		<!-- [if lt IE 8]>
-			<link rel="stylesheet" type="text/css" href="<?php Site::out_url( '3rdparty' ); ?>/blueprint/ie.css" media="screen, projection">
+			<link rel="stylesheet" type="text/css" href="<?php Site::out_url( 'vendor' ); ?>/blueprint/ie.css" media="screen, projection">
 		<![endif]-->
 
 		<link rel="stylesheet" type="text/css" href="<?php Site::out_url( 'theme' ); ?>/style.css" media="screen">
