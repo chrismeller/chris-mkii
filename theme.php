@@ -5,21 +5,26 @@
 	
 	class CWM extends Theme {
 		
-		public function action_init_theme ( ) {
+		public function action_init_theme ( $theme ) {
 			
-			// apply autop to comment content
-			Format::apply( 'autop', 'comment_content_out' );
+			// we don't want to include our class on the admin and nothing else is of value in there
+			if ( $theme == $this ) {
 			
-			// turn tag output into a list
-			Format::apply( 'tag_and_list', 'post_tags_out' );
-			
-			// display excerpts of 100 characters or 1 paragraph
-			//Format::apply_with_hook_params( 'more', 'post_content_out', _t('Continue reading &rarr;'), 100, 1 );
-			
-			include_once('HTML.php');
-			
-			Stack::add( 'template_header_javascript', Site::get_url( 'scripts' ) . '/jquery.js', 'jquery' );
-			Stack::add( 'template_header_javascript', Site::get_url( 'theme' ) . '/js/main.js', 'cwm_main_js', 'jquery' );
+				// apply autop to comment content
+				Format::apply( 'autop', 'comment_content_out' );
+				
+				// turn tag output into a list
+				Format::apply( 'tag_and_list', 'post_tags_out' );
+				
+				// display excerpts of 100 characters or 1 paragraph
+				//Format::apply_with_hook_params( 'more', 'post_content_out', _t('Continue reading &rarr;'), 100, 1 );
+				
+				include('HTML.php');
+				
+				Stack::add( 'template_header_javascript', Site::get_url( 'scripts' ) . '/jquery.js', 'jquery' );
+				Stack::add( 'template_header_javascript', Site::get_url( 'theme' ) . '/js/main.js', 'cwm_main_js', 'jquery' );
+				
+			}
 			
 		}
 		
