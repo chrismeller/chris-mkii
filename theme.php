@@ -76,17 +76,22 @@
 			}
 			else if ( $this->request->display_entries_by_date ) {
 				
-				// if it's year and month
-				if ( isset( $this->year ) && isset( $this->month ) ) {
-					$date = HabariDateTime::date_create()->set_date( $this->year, $this->month, 1 )->format( 'F, Y' );
-					$this->page_title = 'Monthly Archives: ' . $date;
-					$this->title = $this->page_title . ' | ' . $site_title;
-				}
-				else if ( isset( $this->year ) ) {
-					$date = HabariDateTime::date_create()->set_date( $this->year, 1, 1 )->format( 'Y' );
-					$this->page_title = 'Yearly Archives: ' . $date;
-					$this->title = $this->page_title . ' | ' . $site_title;
-				}
+				// if it's year and month and day
+                            if ( isset( $this->year ) && isset( $this->month ) && isset( $this->day ) ) {
+                                $date = HabariDateTime::date_create()->set_date( $this->year, $this->month, $this->day )->format( 'F d, Y' );
+                                $this->page_title = 'Daily Archives: ' . $date;
+                                $this->title = $this->page_title . ' | ' . $site_title;
+                            }
+                            else if ( isset( $this->year ) && isset( $this->month ) ) {
+                                    $date = HabariDateTime::date_create()->set_date( $this->year, $this->month, 1 )->format( 'F, Y' );
+                                    $this->page_title = 'Monthly Archives: ' . $date;
+                                    $this->title = $this->page_title . ' | ' . $site_title;
+                            }
+                            else if ( isset( $this->year ) ) {
+                                    $date = HabariDateTime::date_create()->set_date( $this->year, 1, 1 )->format( 'Y' );
+                                    $this->page_title = 'Yearly Archives: ' . $date;
+                                    $this->title = $this->page_title . ' | ' . $site_title;
+                            }
 				
 			}
 			else if ( $this->request->display_entries_by_tag ) {
@@ -97,33 +102,6 @@
 				// something we don't recognize
 				$this->title = $site_title;
 			}
-			
-		}
-		
-		public function theme_page_title ( ) {
-			
-			ob_end_clean();
-			Utils::debug( $this->request );
-			die();
-			
-			$title = Options::get( 'title' );
-			
-			// if there's a custom title set (like for the archives page), ignore everything else
-			if ( isset( $this->title ) ) {
-				$title = $this->title . ' | ' . $title;
-			}
-			else if ( $this->request->display_entry && isset( $this->post ) ) {
-				$title = $this->post->title . ' | ' . $title;
-			}
-			else if ( $this->request->display_page && isset( $this->post ) ) {
-				$title = $this->post->title . ' | ' . $title;
-			}
-			else if ( $this->request->display_entries_by_date ) {
-				$date = HabariDateTime::date_create()->set_date( $this->year, $this->month, 1 )->format( 'F, Y' );
-				$title = $date . ' Archives | ' . $title;
-			}
-			
-			return $title;
 			
 		}
 		
