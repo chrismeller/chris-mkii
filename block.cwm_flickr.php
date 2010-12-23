@@ -18,7 +18,16 @@
 					
 						echo '<ul>';
 						foreach ( $content->items as $item ) {
-							echo '<li><a href="' . HTML::chars( $item['link'] ) . '" title="' . HTML::chars( $item['title'] ) . '"><img src="' . HTML::chars( $item['thumbnail'] ) . '" alt="' . HTML::chars( $item['title'] ) . '"></a></li>';
+							
+							// if there's a local thumbnail URL, use that instead of the remote one
+							if ( $item['thumbnail_local'] != '' ) {
+								$url = $item['thumbnail_local'];
+							}
+							else {
+								$url = $item['thumbnail'];
+							}
+							
+							echo '<li><a href="' . HTML::chars( $item['link'] ) . '" title="' . HTML::chars( $item['title'] ) . '"><img src="' . HTML::chars( $url ) . '" alt="' . HTML::chars( $item['title'] ) . '"></a></li>';
 						}
 						echo '</ul>';
 					

@@ -164,7 +164,7 @@
 					// for reference: large => _m, proportional => _t, square => _s
 					$suffix = '_s';
 					
-					$items[] = array(
+					$i = array(
 						'title' => (string)$item->title,
 						'link' => (string)$item->link,
 						'thumbnail' => str_replace( '_m.jpg', $suffix . '.jpg', $matches[1] ),
@@ -172,7 +172,33 @@
 						'description' => (string)$item->description,
 						'pubDate' => (string)$item->pubDate,
 						'guid' => (string)$item->guid,
+						'thumbnail_local' => '',
 					);
+					
+					// if we don't already have this thumbnail cached
+					if ( !Cache::has( 'cwm:flickr_thumbnail_' . md5( $i['guid'] ) ) ) {
+						
+						// snag the thumbnail and cache it locally
+						$thumb = file_get_contents( $i['thumbnail'] );
+						
+						if ( $thumb !== false ) {
+							
+							// the thumbnail shouldn't change, so cache it for a long time - and keep it after expiration anyway
+							Cache::set( 'cwm:flickr_thumbnail_' . md5( $i['guid'] ), $thumb, HabariDateTime::DAY * 7, true );
+							
+						}
+						else {
+							// we couldn't get this thumbnail, so skip this item for now
+							continue;
+						}
+						
+					}
+					
+					// set the local thumbnail element
+					$i['thumbnail_local'] = URL::get( 'cwm_display_flickr_thumbnail', array( 'guid' => md5( $i['guid'] ) ) );
+					
+					// add the item to the list
+					$items[] = $i;
 					
 				}
 				
@@ -346,6 +372,27 @@
 		public function act_search ( $user_filters = array() ) {
 			
 			return parent::act_search( array( 'content_type' => Post::type( 'entry' ) ) );
+			
+		}
+		
+		public function filter_theme_act_display_flickr_thumbnail ( $handled, $theme ) {
+		
+			$guid = Controller::get_var( 'guid' );
+			
+			$cache_name = 'cwm:flickr_thumbnail_' . $guid;
+			
+			if ( Cache::has( $cache_name ) ) {
+				
+				Header('Content-Type: image/jpeg' );
+				echo Cache::get( $cache_name );
+				
+				// request was successfully handled!
+				return true;
+				
+			}
+			
+			// we didn't handle the request, 404!
+			return false;
 			
 		}
 		
