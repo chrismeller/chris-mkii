@@ -9,6 +9,8 @@
 	
 	$theme->display( 'page_navigation' );
 	
+	$theme->display('comments');
+	
 	$theme->display('footer');
 
 ?>
