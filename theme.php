@@ -18,6 +18,9 @@
 				
 				// display excerpts of 100 characters or 1 paragraph
 				//Format::apply_with_hook_params( 'more', 'post_content_out', _t('Continue reading &rarr;'), 100, 1 );
+				Plugins::register( array( $this, 'more' ), 'filter', 'post_content_out' );
+        
+        		Format::apply( 'search_highlight', 'post_content_out' );
 				
 				include('HTML.php');
 				
@@ -27,8 +30,84 @@
 			}
 			
 		}
+
+		public function more ( $content, $post ) {
+			
+			$more_text = 'Read the rest &#8594;';
+			$max_paragraphs = 1;
+			
+			$show_more = false;
+			$matches = preg_split( '/<!--\s*more\s*-->/is', $content, 2, PREG_SPLIT_NO_EMPTY );
+			
+			if ( count( $matches ) > 1 ) {
+				$summary = $matches[0];
+				$remainder = $matches[1];
+				if ( trim( $remainder ) != '' ) {
+					$show_more = true;
+				}
+			}
+			else {
+				$ht = new HtmlTokenizer( $content, false );
+				$set = $ht->parse();
+				
+				$stack = array();
+				$paragraph = 0;
+				$token = $set->current();
+				$summary = new HTMLTokenSet(false);
+				$remainder = new HTMLTokenSet(false);
+				
+				$set->rewind();
+				
+				for ( $token = $set->current(); $set->valid(); $token = $set->next() ) {
+					
+					if ( $token['type'] == HTMLTokenizer::NODE_TYPE_ELEMENT_OPEN ) {
+						$stack[ $token['name'] ] = $token['name'];
+					}
+					
+					if ( $paragraph < $max_paragraphs ) {
+						$summary[] = $token;
+					}
+					
+					if ( $paragraph >= $max_paragraphs ) {
+						$remainder[] = $token;
+						$show_more = true;
+					}
+					
+					if ( $token['type'] == HTMLTokenizer::NODE_TYPE_ELEMENT_CLOSE ) {
+						
+						if ( isset( $stack[ $token['name'] ] ) ) {
+							while ( end($stack) != $token['name'] ) {
+								array_pop($stack);
+							}
+							array_pop($stack);
+						}
+						
+						if ( count( $stack ) == 0 ) {
+							$paragraph++;
+						}
+						
+					}
+					
+				}
+			}
+
+			// are we displaying a single page?
+			if ( $post->slug == Controller::get_var('slug') ) {
+				// put it back together with the #more tag in the middle
+				$content = $summary . '<div id="more">' . _t( 'Continues here &#8594;', 'cwm' ) . '</div>' . $remainder;
+			}
+			else if ( $show_more == true ) {
+				$content = $summary . '<p class="more"><a href="' . $post->permalink . '#more">' . $more_text . '</a></p>';
+			}
+			else {
+				$content = $summary . $remainder;
+			}
+			
+			return $content;
+			
+		}
 		
-		public function more ( $post, $length = 55 ) {
+		public function more_old ( $post, $length = 55 ) {
 			
 			if ( $this->request->display_entry || $this->request->display_page ) {
 				$return = $post->content_out;

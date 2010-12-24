@@ -37,7 +37,7 @@
 	
 	<div class="entry-summary">
 		<p>
-			<?php echo $theme->more( $post ); ?>
+			<?php echo $post->content_out; ?>
 		</p>
 	</div>
 	
