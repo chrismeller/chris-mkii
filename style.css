@@ -175,7 +175,7 @@ body {
 }
 
 #content {
-	color: #333333;	
+	color: #555555;	
 }
 
 #content .post-nav {
@@ -185,6 +185,15 @@ body {
 #content h2.entry-title {
 	margin-bottom: 0;
 	line-height: 1em;
+}
+
+#content .entry-content h1,
+#content .entry-content h2,
+#content .entry-content h3,
+#content .entry-content h4,
+#content .entry-content h5,
+#content .entry-content h6 {
+	color: #333333;
 }
 
 /* scale down h1 and h2 in the entry content so they're not larger than the entry title */
