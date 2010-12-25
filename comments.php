@@ -24,7 +24,9 @@
 						foreach ( $post->comments->moderated as $comment ) {
 							
 							// figure out a bunch of values for the HTML
-							$id = 'comment_' . $comment->id;
+							
+							// post-comment you'll be redirected to an anchor of #comment-ID, so be sure it matches
+							$id = 'comment-' . $comment->id;
 							
 							$class = array( 'comment' );
 							if ( $comment->status == Comment::status( 'unapproved' ) ) {
