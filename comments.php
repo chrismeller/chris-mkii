@@ -28,11 +28,7 @@
 							// post-comment you'll be redirected to an anchor of #comment-ID, so be sure it matches
 							$id = 'comment-' . $comment->id;
 							
-							$class = array( 'comment' );
-							if ( $comment->status == Comment::status( 'unapproved' ) ) {
-								$class[] = 'unapproved';
-							}
-							$class = implode( ' ', $class );
+							$class = $theme->comment_class( $comment );
 							
 							if ( $comment->url_out == '' ) {
 								$author = $comment->name_out;

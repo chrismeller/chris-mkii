@@ -328,6 +328,19 @@
 			
 		}
 		
+		public function comment_class ( $comment, $append = null ) {
+			
+			$classes = array( $append );
+			
+			$classes[] = 'comment';
+			$classes[] = 'comment-' . $comment->id;
+			$classes[] = 'type-' . Comment::type_name( $comment->type );
+			$classes[] = 'status-' . Comment::status_name( $comment->status );
+			
+			return implode( ' ', $classes );
+			
+		}
+		
 		public function comments_link ( $post ) {
 			
 			if ( $post->info->comments_disabled ) {
