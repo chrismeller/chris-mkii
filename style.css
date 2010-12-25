@@ -210,6 +210,12 @@ body {
 	margin-bottom: 0.3em;
 }
 
+/* so geshi blocks don't break out of their cage */
+#content .entry-content pre {
+	width: 100%;
+	overflow: auto;
+}
+
 #content h2.entry-title a {
 	color: #0d72ba;
 	text-decoration: none;
