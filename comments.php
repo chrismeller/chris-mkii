@@ -38,7 +38,7 @@
 								$author = $comment->name_out;
 							}
 							else {
-								$author = '<a href="' . $comment->url_out . '" rel="external">' . $comment->name_out . '</a>';
+								$author = '<a href="' . $comment->url_out . '" rel="external nofollow">' . $comment->name_out . '</a>';
 							}
 							
 							$meta = 'on <a href="' . $post->permalink . '#' . $id . '" title="' . _t( 'Comment Permalink', 'cwm' ) . '">' . $comment->date->format( 'F j, Y' ) . ' at ' . $comment->date->format( 'g:i a' ) . '</a>';
