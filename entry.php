@@ -36,9 +36,7 @@
 	</div>
 	
 	<div class="entry-summary">
-		<p>
-			<?php echo $post->content_out; ?>
-		</p>
+		<?php echo $post->content_out; ?>
 	</div>
 	
 	<div class="entry-utility">
