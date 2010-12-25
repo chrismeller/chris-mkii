@@ -35,7 +35,7 @@
 		<?php echo $theme->posted_on( $post ); ?>
 	</div>
 	
-	<div class="entry-summary">
+	<div class="entry-content">
 		<?php echo $post->content_out; ?>
 	</div>
 	
