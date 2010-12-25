@@ -9,7 +9,10 @@
 			
 			// we don't want to include our class on the admin and nothing else is of value in there
 			if ( $theme == $this ) {
-			
+				
+				// apply autop to post content
+				Format::apply( 'autop', 'post_content_out' );
+				
 				// apply autop to comment content
 				Format::apply( 'autop', 'comment_content_out' );
 				
