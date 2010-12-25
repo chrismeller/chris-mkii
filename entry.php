@@ -47,7 +47,7 @@
 			if ( $tags != null ) {
 				?>
 					<span class="tags"><?php echo $tags; ?></span>
-					<span class=meta-sep"> | </span>
+					<span class="meta-sep"> | </span>
 				<?php
 			}
 		
