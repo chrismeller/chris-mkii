@@ -127,7 +127,7 @@
 				
 				$pieces = explode( ' ', $return );
 				
-				$words = array_slice( $pieces, 0, $length );
+				$words = array_slice( $pieces, 0, 55 );
 				
 				$return = implode( ' ', $words );
 				
