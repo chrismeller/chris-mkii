@@ -21,7 +21,7 @@
 				
 				// display excerpts of 100 characters or 1 paragraph
 				//Format::apply_with_hook_params( 'more', 'post_content_out', _t('Continue reading &rarr;'), 100, 1 );
-				Plugins::register( array( $this, 'more' ), 'filter', 'post_content_out' );
+				Plugins::register( array( $this, 'more_old' ), 'filter', 'post_content_out' );
         
         		Format::apply( 'search_highlight', 'post_content_out' );
 				
@@ -109,8 +109,40 @@
 			return $content;
 			
 		}
+
+		public function more_old ( $content, $post ) {
+			
+			// are we displaying a single page?
+			if ( $this->request->display_entry || $this->request->display_page ) {
+				return $content;
+			}
+			
+			// otherwise, we want to get the summary
+			$return = strip_tags( $content, 'p' );
+			
+			$return = MultiByte::str_replace( '</p>', ' ', $return );
+			$return = MultiByte::str_replace( '<p>', '', $return );
+			
+			if ( MultiByte::strlen( $return ) > $length ) {
+				
+				$pieces = explode( ' ', $return );
+				
+				$words = array_slice( $pieces, 0, $length );
+				
+				$return = implode( ' ', $words );
+				
+				// build the more link
+				$link = '<a href="' . $post->permalink . '" title="' . HTML::chars( _t( 'Read the rest of %s', array( $post->title ) ) ) . '">' . _t( 'Continue reading&nbsp;&rarr;' ) . '</a>';
+				
+				$return .= ' ... ' . $link;
+				
+			}
+			
+			return $return;
+			
+		}
 		
-		public function more_old ( $post, $length = 55 ) {
+		public function more_old2 ( $post, $length = 55 ) {
 			
 			if ( $this->request->display_entry || $this->request->display_page ) {
 				$return = $post->content_out;
