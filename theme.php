@@ -136,6 +136,9 @@
 				
 				$return .= ' ... ' . $link;
 				
+				// andfinally, wrap it in a p tag
+				$return = '<p>' . $return . '</p>';
+				
 			}
 			
 			return $return;
