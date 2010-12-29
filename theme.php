@@ -25,7 +25,7 @@
         
         		Format::apply( 'search_highlight', 'post_content_out' );
 				
-				include('html.php');
+				include_once('html.php');
 				
 				Stack::add( 'template_header_javascript', Site::get_url( 'scripts' ) . '/jquery.js', 'jquery' );
 				Stack::add( 'template_header_javascript', Site::get_url( 'theme' ) . '/js/main.js', 'cwm_main_js', 'jquery' );
