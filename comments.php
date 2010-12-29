@@ -52,7 +52,18 @@
 								<li id="<?php echo $id; ?>" class="<?php echo $class; ?>">
 									<span class="author"><?php echo $author; ?></span>
 									<span class="posted-on"><?php echo $posted_on; ?></span>
-									<span class="meta"><?php echo $meta; ?></span>
+									<?php 
+									
+										if ( ACL::access_check( $comment->get_access(), 'edit' ) ) {
+											?>
+												<span class="meta-sep"> | </span>
+												<span class="edit-link">
+													<a class="comment-edit-link" href="<?php echo $comment->editlink; ?>" title="<?php echo _t( 'Edit Comment' ); ?>"><?php echo _t( 'Edit' ); ?></a>
+												</span>
+											<?php
+										}
+									
+									?>
 									<div class="content">
 										<?php echo $comment->content_out; ?>
 									</div>
