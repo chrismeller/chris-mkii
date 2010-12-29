@@ -30,6 +30,7 @@
 							
 							$class = $theme->comment_class( $comment );
 							
+							// we generate the URL ourselves instead of using the Habari-supplied method because we want rel attributes
 							if ( $comment->url_out == '' ) {
 								$author = $comment->name_out;
 							}
@@ -37,12 +38,20 @@
 								$author = '<a href="' . $comment->url_out . '" rel="external nofollow">' . $comment->name_out . '</a>';
 							}
 							
-							$meta = 'on <a href="' . $post->permalink . '#' . $id . '" title="' . _t( 'Comment Permalink', 'cwm' ) . '">' . $comment->date->format( 'F j, Y' ) . ' at ' . $comment->date->format( 'g:i a' ) . '</a>';
+							$posted_on = 'on <a href="' . $post->permalink . '#' . $id . '" title="' . _t( 'Comment Permalink', 'cwm' ) . '">' . $comment->date->format( 'F j, Y' ) . ' at ' . $comment->date->format( 'g:i a' ) . '</a>';
+							
+							if ( User::identify()->can( 'edit_comment', $comment ) ) {
+								$meta = '<span class="meta-sep"> | </span> <span class="edit-link"><a href="' . $comment->editlink . '" class="comment-edit-link" title="' . _t( 'Edit Comment', 'cwm' ) . '">' . _t( 'Edit Comment', 'cwm' ) . '</a></span>';
+							}
+							else {
+								$meta = '';
+							}
 							
 							?>
 							
 								<li id="<?php echo $id; ?>" class="<?php echo $class; ?>">
 									<span class="author"><?php echo $author; ?></span>
+									<span class="posted-on"><?php echo $posted_on; ?></span>
 									<span class="meta"><?php echo $meta; ?></span>
 									<div class="content">
 										<?php echo $comment->content_out; ?>
