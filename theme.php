@@ -123,7 +123,7 @@
 			$return = MultiByte::str_replace( '</p>', ' ', $return );
 			$return = MultiByte::str_replace( '<p>', '', $return );
 			
-			if ( MultiByte::strlen( $return ) > $length ) {
+			if ( MultiByte::strlen( $return ) > 55 ) {
 				
 				$pieces = explode( ' ', $return );
 				
