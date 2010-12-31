@@ -100,7 +100,7 @@
 				$content = $summary . '<div id="more">' . _t( 'Continues here &#8594;', 'cwm' ) . '</div>' . $remainder;
 			}
 			else if ( $show_more == true ) {
-				$content = $summary . '<p class="more"><a href="' . $post->permalink . '#more">' . $more_text . '</a></p>';
+				$content = $summary . '<a href="' . $post->permalink . '#more">' . $more_text . '</a>';
 			}
 			else {
 				$content = $summary . $remainder;
