@@ -409,7 +409,7 @@
 			else {
 				
 				// get the posts
-				$posts = Posts::get( array( 'content_type' => Post::type( 'entry' ), 'status' => Post::status( 'published' ), 'limit' => 10, 'page' => $this->page ) );
+				$posts = Posts::get( array( 'content_type' => Post::type( 'entry' ), 'status' => Post::status( 'published' ), 'limit' => 15, 'page' => $this->page ) );
 				
 				Cache::set( $cache_name, $posts, HabariDateTime::HOUR * 12 );
 				
