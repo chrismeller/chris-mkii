@@ -180,6 +180,8 @@
 		
 		public function add_template_vars ( ) {
 			
+			parent::add_template_vars();
+			
 			if ( isset( $this->criteria ) && $this->criteria != '' ) {
 				$this->search_criteria = $this->criteria;
 			}
