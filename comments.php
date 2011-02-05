@@ -1,7 +1,7 @@
 <?php if ( !defined( 'HABARI_PATH' ) ) { die('No direct access'); } ?>
 
 <div class="comments">
-	<h4 id="comments"><?php echo _t( 'Comments', 'cwm' ); ?></h4>
+	<h3 id="comments"><?php echo _t( 'Comments', 'cwm' ); ?></h3>
 	
 	<?php
 	
@@ -95,7 +95,7 @@
 			?>
 			
 				<div class="reply">
-					<h4 id="respond" class="reply"><?php echo _t( 'Leave a Reply', 'cwm' ); ?></h4>
+					<h3 id="respond" class="reply"><?php echo _t( 'Leave a Reply', 'cwm' ); ?></h3>
 					
 					<?php
 					
