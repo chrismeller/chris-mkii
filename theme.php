@@ -182,11 +182,11 @@
 			
 			parent::add_template_vars();
 			
-			if ( isset( $this->criteria ) && $this->criteria != '' ) {
+			if ( isset( $this->criteria ) ) {
 				$this->search_criteria = $this->criteria;
 			}
 			else {
-				$this->search_criteria = _t('Search');
+				$this->search_criteria = '';
 			}
 			
 			$site_title = Options::get('title');
