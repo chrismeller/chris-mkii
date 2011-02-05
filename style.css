@@ -306,6 +306,53 @@ body {
 	background-color: #E0E9F0;
 }
 
+/* hide the "* Required" text on required comment fields */
+.comments .reply label span.required {
+	display: none;
+}
+
+.comments #cf_commenter,
+.comments #cf_email,
+.comments #cf_url {
+	display: block;
+	width: 29%;
+	float: left;
+	margin-right: 1em;
+}
+
+.comments #cf_commenter label,
+.comments #cf_email label,
+.comments #cf_url label {
+	display: block;
+	color: #555555;
+	font-weight: normal;
+}
+
+.comments #cf_commenter input,
+.comments #cf_email input,
+.comments #cf_url input {
+	width: 100%;
+	margin-top: 0;
+	background-color: #fafafa;
+	
+	padding: 3px;
+}
+
+.comments #cf_content {
+	clear: both;
+}
+
+/* Hide the label for the content, it's obvious what it is */
+.comments #cf_content label {
+	display: none;
+}
+
+.comments #cf_content textarea {
+	width: 90%;
+	background-color: #fafafa;
+}
+
+
 #sidebar {
 	width: 228px;
 	
