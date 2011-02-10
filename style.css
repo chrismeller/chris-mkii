@@ -306,6 +306,44 @@ body {
 	background-color: #E0E9F0;
 }
 
+ol#entry-comments {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+ol#entry-comments li {
+	display: block;
+}
+
+ol#entry-comments .author .name {
+	padding-top: 1em;
+	font-size: 1.2em;
+}
+
+ol#entry-comments .author .url {
+	font-size: 1.1em;
+	font-style: italic;
+}
+
+ol#entry-comments .author .url a {
+	text-decoration: none;
+}
+
+ol#entry-comments .comment-utility {
+	color: #a0a0a0;
+	
+	margin-bottom: 1em;
+}
+
+ol#entry-comments .comment-utility a {
+	color: #a0a0a0;
+}
+
+ol#entry-comments .comment-utility a:hover {
+	color: #666666;
+}
+
 /* hide the "* Required" text on required comment fields */
 .comments .reply label span.required {
 	display: none;
