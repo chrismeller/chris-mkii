@@ -481,3 +481,7 @@ h3 {
 h4 {
 	margin-bottom: 0.5em;
 }
+
+ul.error {
+	list-style: none;
+}
