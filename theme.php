@@ -1,8 +1,6 @@
 <?php if ( !defined( 'HABARI_PATH' ) ) { die('No direct access'); } ?>
 <?php
 
-	define( 'THEME_CLASS', 'CWM' );
-	
 	class CWM extends Theme {
 		
 		public function action_init_theme ( $theme ) {
