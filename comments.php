@@ -1,7 +1,7 @@
 <?php if ( !defined( 'HABARI_PATH' ) ) { die('No direct access'); } ?>
 
 <div class="comments">
-	<h4 id="comments"><?php echo _t( 'Comments', 'cwm' ); ?></h4>
+	<h3 id="comments"><?php echo _t( 'Comments', 'cwm' ); ?></h3>
 	
 	<?php
 	
@@ -32,40 +32,50 @@
 							
 							// we generate the URL ourselves instead of using the Habari-supplied method because we want rel attributes
 							if ( $comment->url_out == '' ) {
-								$author = $comment->name_out;
+								$author_url = '';
 							}
 							else {
-								$author = '<a href="' . $comment->url_out . '" rel="external nofollow">' . $comment->name_out . '</a>';
+								$pieces = InputFilter::parse_url( $comment->url );
+								if ( $pieces['is_error'] == true ) {
+									$author_url = '';
+								}
+								else {
+									$author_url = '<a href="' . $comment->url_out . '" rel="external nofollow">' . $pieces['host'] . '</a>';
+								}
 							}
 							
-							$posted_on = 'on <a href="' . $post->permalink . '#' . $id . '" title="' . _t( 'Comment Permalink', 'cwm' ) . '">' . $comment->date->format( 'F j, Y' ) . ' at ' . $comment->date->format( 'g:i a' ) . '</a>';
-							
-							if ( User::identify()->can( 'edit_comment', $comment ) ) {
-								$meta = '<span class="meta-sep"> | </span> <span class="edit-link"><a href="' . $comment->editlink . '" class="comment-edit-link" title="' . _t( 'Edit Comment', 'cwm' ) . '">' . _t( 'Edit Comment', 'cwm' ) . '</a></span>';
-							}
-							else {
-								$meta = '';
-							}
+							$posted_on = 'Posted on <a href="' . $post->permalink . '#' . $id . '" title="' . _t( 'Comment Permalink', 'cwm' ) . '">' . $comment->date->format( 'F j, Y' ) . ' at ' . $comment->date->format( 'g:i a' ) . '</a>';
 							
 							?>
 							
 								<li id="<?php echo $id; ?>" class="<?php echo $class; ?>">
-									<span class="author"><?php echo $author; ?></span>
-									<span class="posted-on"><?php echo $posted_on; ?></span>
-									<?php 
-									
-										if ( ACL::access_check( $comment->get_access(), 'edit' ) ) {
-											?>
-												<span class="meta-sep"> | </span>
-												<span class="edit-link">
-													<a class="comment-edit-link" href="<?php echo $comment->editlink; ?>" title="<?php echo _t( 'Edit Comment' ); ?>"><?php echo _t( 'Edit' ); ?></a>
-												</span>
-											<?php
-										}
-									
-									?>
-									<div class="content">
+									<div class="author clearfix">
+										<div class="gravatar span-2"><img src="<?php echo $comment->gravatar; ?>"></div>
+										<div class="name"><?php echo $comment->name_out; ?></div>
+										<div class="url"><?php echo $author_url; ?></div>
+									</div>
+									<div class="content prepend-2">
 										<?php echo $comment->content_out; ?>
+									</div>
+									
+									<div class="comment-utility prepend-2">
+										<span class="posted-on"><?php echo $comment->date->format( 'F j, Y' ) . ' at ' . $comment->date->format( 'g:i a'); ?></span>
+										<span class="meta-sep"> | </span>
+										<span class="permalink">
+											<a href="<?php echo $post->permalink; ?>#<?php echo $id; ?>" title="<?php _t( 'Comment Permalink', 'cwm' ); ?>"><?php echo _t( 'Permalink', 'cwm' ); ?></a>
+										</span>
+										<?php 
+									
+											if ( ACL::access_check( $comment->get_access(), 'edit' ) ) {
+												?>
+													<span class="meta-sep"> | </span>
+													<span class="edit-link">
+														<a class="comment-edit-link" href="<?php echo $comment->editlink; ?>" title="<?php echo _t( 'Edit Comment' ); ?>"><?php echo _t( 'Edit' ); ?></a>
+													</span>
+												<?php
+											}
+									
+										?>
 									</div>
 								</li>
 							
@@ -95,7 +105,7 @@
 			?>
 			
 				<div class="reply">
-					<h4 id="respond" class="reply"><?php echo _t( 'Leave a Reply', 'cwm' ); ?></h4>
+					<h3 id="respond" class="reply"><?php echo _t( 'Leave a Reply', 'cwm' ); ?></h3>
 					
 					<?php
 					
