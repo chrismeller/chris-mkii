@@ -104,6 +104,7 @@ body {
 	
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
+	border-radius: 4px;
 	
 	border: 1px solid #dadfe2;
 	
@@ -129,6 +130,8 @@ body {
 	-moz-border-radius-topright: 4px;
 	-webkit-border-top-left-radius: 4px;
 	-webkit-border-top-right-radius: 4px;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
 	
 	line-height: 1em;
 	
@@ -168,6 +171,7 @@ body {
 	
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
+	border-radius: 4px;
 }
 
 .wrap {
@@ -295,6 +299,7 @@ body {
 
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
+	border-radius: 4px;
 }
 
 #page-selector a.current-page {
@@ -415,6 +420,7 @@ ol#entry-comments .comment-utility a:hover {
 	
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
+	border-radius: 4px;
 	
 	margin-bottom: 1em;
 }
@@ -470,6 +476,7 @@ h3.block-title {
 	
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
+	border-radius: 10px;
 	
 	-moz-user-select: none;
 }
