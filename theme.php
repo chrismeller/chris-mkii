@@ -20,8 +20,8 @@
 				// display excerpts of 100 characters or 1 paragraph
 				//Format::apply_with_hook_params( 'more', 'post_content_out', _t('Continue reading &rarr;'), 100, 1 );
 				Plugins::register( array( $this, 'more_old' ), 'filter', 'post_content_out' );
-        
-        		Format::apply( 'search_highlight', 'post_content_out' );
+
+				Format::apply( 'search_highlight', 'post_content_out' );
 				
 				include_once('html.php');
 				
