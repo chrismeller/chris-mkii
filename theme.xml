@@ -10,7 +10,6 @@
 	<description><![CDATA[Rawrrr]]></description>
 	
 	<template_engine>rawphpengine</template_engine>
-	<class>CWM</class>
 
 	<areas>
 		<area name="menu">
