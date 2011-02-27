@@ -1,12 +1,3 @@
-/*
-Theme Name:     Chris Meller, mk II
-Theme URI:      http: //chrismeller.com/
-Description:    The new theme
-Author:         Chris Meller
-Author URI:     http: //chrismeller.com/
-Version:        0.1.0
-*/
-
 body {
 	background-color: #f5f5f5;
 	
@@ -52,7 +43,7 @@ body {
 	text-shadow: none;
 }
 
-#header #search .left {
+#header #search .left-round {
 	width: 20px;
 	height: 19px;
 	
@@ -61,7 +52,7 @@ body {
 	float: left;
 }
 
-#header #search .right {
+#header #search .right-round {
 	width: 10px;
 	height: 19px;
 	
@@ -113,6 +104,7 @@ body {
 	
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
+	border-radius: 4px;
 	
 	border: 1px solid #dadfe2;
 	
@@ -138,6 +130,8 @@ body {
 	-moz-border-radius-topright: 4px;
 	-webkit-border-top-left-radius: 4px;
 	-webkit-border-top-right-radius: 4px;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
 	
 	line-height: 1em;
 	
@@ -177,6 +171,7 @@ body {
 	
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
+	border-radius: 4px;
 }
 
 .wrap {
@@ -184,12 +179,25 @@ body {
 }
 
 #content {
-	color: #333333;	
+	color: #555555;	
+}
+
+#content .post-nav {
+	margin-bottom: 1em;
 }
 
 #content h2.entry-title {
 	margin-bottom: 0;
 	line-height: 1em;
+}
+
+#content .entry-content h1,
+#content .entry-content h2,
+#content .entry-content h3,
+#content .entry-content h4,
+#content .entry-content h5,
+#content .entry-content h6 {
+	color: #333333;
 }
 
 /* scale down h1 and h2 in the entry content so they're not larger than the entry title */
@@ -204,6 +212,12 @@ body {
 
 #content .entry-content h5 {
 	margin-bottom: 0.3em;
+}
+
+/* so geshi blocks don't break out of their cage */
+#content .entry-content pre {
+	width: 100%;
+	overflow: auto;
 }
 
 #content h2.entry-title a {
@@ -248,9 +262,139 @@ body {
 	border-bottom: 1px solid #efefef;
 }
 
-#content .post.last {
+#content .post.last-child {
 	border-bottom: none;
 }
+
+#page-selector {
+	margin-bottom: 1em;
+}
+
+#page-selector span.sep {
+	display: block;
+	float: left;
+
+	/* bump it down so it's level with the A text */
+	padding-top: 3px;
+	margin-top: 3px;
+
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+#page-selector a {
+	display: block;
+	float: left;
+
+	padding-left: 10px;
+	padding-right: 10px;
+	
+	margin: 3px;
+
+	color: #8d8d8d;
+	text-decoration: none;
+	
+	background-color: #FBFDFF;
+	border: 1px solid #E0E9F0;
+
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+
+#page-selector a.current-page {
+	color: #5d5d5d;		/* ever so slightly darker than normal */
+	background-color: #E0E9F0;
+}
+
+#page-selector a:hover {
+	background-color: #E0E9F0;
+}
+
+ol#entry-comments {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+ol#entry-comments li {
+	display: block;
+}
+
+ol#entry-comments .author .name {
+	padding-top: 1em;
+	font-size: 1.2em;
+}
+
+ol#entry-comments .author .url {
+	font-size: 1.1em;
+	font-style: italic;
+}
+
+ol#entry-comments .author .url a {
+	text-decoration: none;
+}
+
+ol#entry-comments .comment-utility {
+	color: #a0a0a0;
+	
+	margin-bottom: 1em;
+}
+
+ol#entry-comments .comment-utility a {
+	color: #a0a0a0;
+}
+
+ol#entry-comments .comment-utility a:hover {
+	color: #666666;
+}
+
+/* hide the "* Required" text on required comment fields */
+.comments .reply label span.required {
+	display: none;
+}
+
+.comments #cf_commenter,
+.comments #cf_email,
+.comments #cf_url {
+	display: block;
+	width: 29%;
+	float: left;
+	margin-right: 1em;
+}
+
+.comments #cf_commenter label,
+.comments #cf_email label,
+.comments #cf_url label {
+	display: block;
+	color: #555555;
+	font-weight: normal;
+}
+
+.comments #cf_commenter input,
+.comments #cf_email input,
+.comments #cf_url input {
+	width: 100%;
+	margin-top: 0;
+	background-color: #fafafa;
+	
+	padding: 3px;
+}
+
+.comments #cf_content {
+	clear: both;
+}
+
+/* Hide the label for the content, it's obvious what it is */
+.comments #cf_content label {
+	display: none;
+}
+
+.comments #cf_content textarea {
+	width: 90%;
+	background-color: #fafafa;
+}
+
 
 #sidebar {
 	width: 228px;
@@ -259,28 +403,29 @@ body {
 	margin-bottom: 75px;
 }
 
-.widget-area {
+.block-area {
 
 }
 
-.widget-area ul {
+.block-area ul {
 	list-style: none;
 	
 	margin: 0;
 	padding: 0;
 }
 
-.widget-container {
+.block-container {
 	background-color: #fbfdff;
 	border: 1px solid #e0e9f0;
 	
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
+	border-radius: 4px;
 	
 	margin-bottom: 1em;
 }
 
-h3.widget-title {
+h3.block-title {
 	color: #3a6c93;
 	font-weight: bold;
 	
@@ -302,7 +447,7 @@ h3.widget-title {
 	padding-bottom: 5px;
 }
 
-#archives li.last {
+#archives li.last-child {
 	border-bottom: none;
 	padding-bottom: 8px;
 }
@@ -331,13 +476,14 @@ h3.widget-title {
 	
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
+	border-radius: 10px;
 	
 	-moz-user-select: none;
 }
 
 #flickr li {
 	display: inline;
-	
+
 	padding-right: 10px;
 }
 
@@ -426,4 +572,8 @@ h3 {
 
 h4 {
 	margin-bottom: 0.5em;
+}
+
+ul.error {
+	list-style: none;
 }

@@ -12,7 +12,7 @@
 		if ( count( $posts ) == 0 ) {
 			?>
 			
-				<p>Sorry, there were no posts for that month.</p>
+				<p>Sorry, there were no posts for that year.</p>
 			
 			<?php
 		}

@@ -142,7 +142,7 @@
 	);
 	
 	// pick a header
-	$header = $headers[ mt_rand( 0, count( $headers ) - 1 ) ];
+	$header = $headers[ array_rand( $headers ) ];
 	
 	echo json_encode( $header );
 
