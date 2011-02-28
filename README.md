@@ -22,7 +22,7 @@ Note that the 'm' logo and associated wordmark are excluded from the Apache Lice
 #Installation#
 Drop the theme directory into your `user/themes` directory and activate it via the admin.
 
-You'll also need the `cwm_companion` plugin for everything to work, since themes cannot hook all the actions needed (yet!). You can find it in its own branch and drop it in `user/plugins` and activate it.
+You'll also need the [cwm_companion](http://github.com/chrismeller/cwm_companion) plugin for everything to work, since themes cannot hook all the actions needed (yet!). Just drop it in `user/plugins` and activate it before you activate the theme.
 
 ##Navigation Block##
 The navigation block can hold any block contents. For a normal navigation menu of pages I recommend the [pagemenu](http://habariproject.org/dist/plugins/pagemenu/) plugin.
