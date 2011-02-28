@@ -238,13 +238,13 @@
 		
 		public function action_block_content_cwm_archives ( $block, $theme ) {
 			
-			if ( Cache::has( 'cwm:archives' ) ) {
-				$archives = Cache::get( 'cwm:archives' );
+			if ( Cache::has( 'cwm:archives_block' ) ) {
+				$archives = Cache::get( 'cwm:archives_block' );
 			}
 			else {
 				$archives = Posts::get( array( 'content_type' => Post::type( 'entry' ), 'status' => Post::status( 'published' ), 'month_cts' => true, 'limit' => 8, 'orderby' => 'year desc, month desc' ) );
 				
-				Cache::set( 'cwm:archives', $archives, HabariDateTime::HOUR * 12 );
+				Cache::set( 'cwm:archives_block', $archives, HabariDateTime::HOUR * 12 );
 			}
 			
 			$block->archives = $archives;
@@ -401,7 +401,7 @@
 			// add the archives stylesheet to the stack
 			Stack::add( 'template_stylesheet', array( Site::get_url( 'theme' ) . '/style-archives.css', 'screen' ) );
 			
-			$cache_name = 'cwm:archives_page_' . $this->page;
+			$cache_name = 'cwm:archives:page_' . $this->page;
 			
 			if ( Cache::has( $cache_name ) ) {
 				$posts = Cache::get( $cache_name );
