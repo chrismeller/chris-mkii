@@ -18,7 +18,7 @@
 	
 	// figure out the tags we should display
 	if ( count( $post->tags ) > 0 ) {
-		$tags = _t( 'Tagged %s', array( Format::tag_and_list( $post->tags, ', ', ', ' ) ) );
+		$tags = _t( 'Tagged %s', array( Format::tag_and_list( $post->tags, ', ', ', ', true ) ) );
 	}
 	else {
 		$tags = null;
