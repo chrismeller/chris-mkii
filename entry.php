@@ -23,6 +23,23 @@
 	else {
 		$tags = null;
 	}
+	
+	// put together the meta section
+	$meta = array();
+	
+	if ( $tags != null ) {
+		$meta[] = '<span class="tags">' . $tags . '</span>';
+	}
+	
+	if ( $post->info->comments_disabled != true ) {
+		$meta[] = '<span class="comments-link">' . $theme->comments_link( $post ) . '</span>';
+	}
+	
+	if ( ACL::access_check( $post->get_access(), 'edit' ) ) {
+		$meta[] = '<span class="edit-link"><a class="post-edit-link" href="' . $post->editlink . '" title="' . _t( 'Edit Post' ) . '">' . _t( 'Edit' ) . '</a></span>';
+	}
+	
+	$meta = implode( '<span class="meta-sep"> | </span>', $meta );
 
 ?>
 
@@ -42,25 +59,7 @@
 	<div class="entry-utility">
 		<?php 
 		
-			if ( $tags != null ) {
-				?>
-					<span class="tags"><?php echo $tags; ?></span>
-					<span class="meta-sep"> | </span>
-				<?php
-			}
-		
-		?>
-		<span class="comments-link"><?php echo $theme->comments_link( $post ); ?></span>
-		<?php 
-		
-			if ( ACL::access_check( $post->get_access(), 'edit' ) ) {
-				?>
-					<span class="meta-sep"> | </span>
-					<span class="edit-link">
-						<a class="post-edit-link" href="<?php echo $post->editlink; ?>" title="<?php echo _t( 'Edit Post' ); ?>"><?php echo _t( 'Edit' ); ?></a>
-					</span>
-				<?php
-			}
+			echo $meta;
 		
 		?>
 	</div>
