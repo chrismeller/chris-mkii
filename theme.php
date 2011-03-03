@@ -31,6 +31,25 @@
 			}
 			
 		}
+		
+		public function action_template_header ( ) {
+			
+			if ( isset( $_SERVER['SERVER_NAME'] ) && $_SERVER['SERVER_NAME'] == 'localhost' ) {
+				$favicon = 'favicon-grey.ico';
+			}
+			else {
+				$favicon = 'favicon.ico';
+			}
+			
+			echo '<link rel="Shortcut Icon" href="' . Site::get_url('theme') . '/images/' . $favicon . '">';
+			
+		}
+		
+		public function action_admin_header ( ) {
+			
+			$this->action_template_header();
+			
+		}
 
 		public function more ( $content, $post ) {
 			
