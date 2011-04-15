@@ -250,6 +250,7 @@
 			
 			$block_list[ 'cwm_archives' ] = _t( 'CWM Archives' );
 			$block_list[ 'cwm_flickr' ] = _t( 'CWM Flickr' );
+			$block_list[ 'cwm_social_icons' ] = _t( 'CWM Social Icons' );
 			
 			return $block_list;
 			

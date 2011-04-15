@@ -433,6 +433,36 @@ h3.block-title {
 	margin-bottom: 0.5em;
 }
 
+#social-icons a {
+	display: block;
+	float: left;
+
+	width: 32px;
+	height: 32px;
+
+	padding-right: 1em;
+}
+
+#social-icons a span {
+	display: none;
+}
+
+#social-icons #github {
+	background: url('images/icons/github-grey.png') no-repeat;
+}
+
+#social-icons #twitter {
+	background: url('images/icons/twitter-grey.png') no-repeat;
+}
+
+#social-icons #github:hover {
+	background: url('images/icons/github-color.png') no-repeat;
+}
+
+#social-icons #twitter:hover {
+	background: url('images/icons/twitter-color.png') no-repeat;
+}
+
 #archives ul {
 	list-style: none;
 	margin: 0;
