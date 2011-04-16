@@ -19,7 +19,7 @@
 		<link rel="stylesheet" type="text/css" href="<?php Site::out_url( 'theme' ); ?>/style.css" media="screen">
 		
 		<script type="text/javascript">
-			var CWM = {}
+			var CWM = {};
 			CWM.template_directory = '<?php Site::out_url( 'theme' ); ?>';
 		</script>
 		
