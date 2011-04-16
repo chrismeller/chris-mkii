@@ -3,8 +3,8 @@
 	
 	<div class="wrap">
 	
-		<a href="https://github.com/chrismeller" id="github" title="Github"><span>Github</span></a>
-		<a href="http://twitter.com/chrismeller" id="twitter" title="Twitter"><span>Twitter</span></a>
+		<a href="https://github.com/chrismeller" id="github" class="tipsy" title="Github"><span>Github</span></a>
+		<a href="http://twitter.com/chrismeller" id="twitter" class="tipsy" title="Twitter"><span>Twitter</span></a>
 		
 		<br class="clear" />
 	

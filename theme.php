@@ -28,6 +28,11 @@
 				Stack::add( 'template_header_javascript', Site::get_url( 'scripts' ) . '/jquery.js', 'jquery' );
 				Stack::add( 'template_header_javascript', Site::get_url( 'theme' ) . '/js/main.js', 'cwm_main_js', 'jquery' );
 				
+				// now jquery tipsy!
+				Stack::add( 'template_header_javascript', Site::get_url( 'theme' ) . '/tipsy/javascripts/jquery.tipsy.js', 'tipsy', 'jquery' );
+				Stack::add( 'template_header_javascript', "$(document).ready( function() { $('a[class=tipsy]').tipsy( {gravity: 'n' } ); console.log('tipsy');} );", 'tipsy-start', 'tipsy' );
+				Stack::add( 'template_stylesheet', array( Site::get_url( 'theme' ) . '/tipsy/stylesheets/tipsy.css', 'screen' ), 'tipsy' );
+				
 			}
 			
 		}
