@@ -440,7 +440,8 @@ h3.block-title {
 	width: 32px;
 	height: 32px;
 
-	padding-right: 1em;
+	padding: 0;
+	padding-right: 1.5em;
 }
 
 #social-icons a span {
@@ -448,19 +449,19 @@ h3.block-title {
 }
 
 #social-icons #github {
-	background: url('images/icons/github-grey.png') no-repeat;
+	background: url('images/icons/github-grey.png') center no-repeat;
 }
 
 #social-icons #twitter {
-	background: url('images/icons/twitter-grey.png') no-repeat;
+	background: url('images/icons/twitter-grey.png') center no-repeat;
 }
 
 #social-icons #github:hover {
-	background: url('images/icons/github-color.png') no-repeat;
+	background: url('images/icons/github-color.png') center no-repeat;
 }
 
 #social-icons #twitter:hover {
-	background: url('images/icons/twitter-color.png') no-repeat;
+	background: url('images/icons/twitter-color.png') center no-repeat;
 }
 
 #archives ul {
