@@ -1,6 +1,6 @@
 $(document).ready( function () {
 	
-	$.getJSON( CWM.template_directory + '/image.php', function ( data ) {
+	$.getJSON( CWM.base_url + '/header', function ( data ) {
 		
 		$('#banner').css('background', 'url("' + CWM.template_directory + '/' + data.img + '") no-repeat');
 		$('#banner').css('width', data.width + 'px');

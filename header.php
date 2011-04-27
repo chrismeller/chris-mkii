@@ -21,6 +21,7 @@
 		<script type="text/javascript">
 			var CWM = {};
 			CWM.template_directory = '<?php Site::out_url( 'theme' ); ?>';
+			CWM.base_url = '<?php Site::out_url( 'habari' ); ?>';
 		</script>
 		
 		<?php $theme->header(); ?>
