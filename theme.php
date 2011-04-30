@@ -630,6 +630,8 @@
 		
 		public function filter_theme_act_display_header ( $handled, $theme ) {
 			
+			header('Content-Type: application/json');
+			
 			// pick a header
 			$header = $this->headers[ array_rand( $this->headers ) ];
 			
