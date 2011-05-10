@@ -456,12 +456,20 @@ h3.block-title {
 	background: url('images/icons/twitter-grey.png') center no-repeat;
 }
 
+#social-icons #habari {
+	background: url('images/icons/habari-grey.png') center no-repeat;
+}
+
 #social-icons #github:hover {
 	background: url('images/icons/github-color.png') center no-repeat;
 }
 
 #social-icons #twitter:hover {
 	background: url('images/icons/twitter-color.png') center no-repeat;
+}
+
+#social-icons #habari:hover {
+	background: url('images/icons/habari-color.png') center no-repeat;
 }
 
 #archives ul {
