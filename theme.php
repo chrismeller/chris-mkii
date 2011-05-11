@@ -142,6 +142,46 @@
 				'width' => 950,
 				'height' => 250,
 			),
+			/*
+			array(
+				'img' => 'images/headers/header_coi_lake_reflection.jpg',
+				'flickr' => 'http://www.flickr.com/photos/mellertime/5248355922/',
+				'width' => 950,
+				'height' => 250,
+			),
+			*/
+			/*
+			array(
+				'img' => 'images/headers/header_reedy_falls.jpg',
+				'flickr' => 'http://www.flickr.com/photos/mellertime/5248355922/',
+				'width' => 950,
+				'height' => 250,
+			),
+			*/
+			array(
+				'img' => 'images/headers/header_falls-bridge.jpg',
+				'flickr' => 'http://www.flickr.com/photos/mellertime/5708962476/',
+				'width' => 950,
+				'height' => 250,
+			),
+			array(
+				'img' => 'images/headers/header_falls.jpg',
+				'flickr' => 'http://www.flickr.com/photos/mellertime/5708939168/',
+				'width' => 950,
+				'height' => 250,
+			),
+			array(
+				'img' => 'images/headers/header_falls2.jpg',
+				'flickr' => 'http://www.flickr.com/photos/mellertime/5708966738/',
+				'width' => 950,
+				'height' => 250,
+			),
+			array(
+				'img' => 'images/headers/header_seagull_prints.jpg',
+				'flickr' => 'http://www.flickr.com/photos/mellertime/5688943152/',
+				'width' => 950,
+				'height' => 250,
+			),
 		);
 		
 		public function action_init_theme ( $theme ) {
