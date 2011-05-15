@@ -2,7 +2,7 @@ $(document).ready( function () {
 	
 	$.getJSON( CWM.base_url + '/header.json', function ( data ) {
 		
-		$('#banner').css('background', 'url("' + CWM.template_directory + '/' + data.img + '") no-repeat');
+		$('#banner').css('background', 'url("' + CWM.cdn_url + '/' + data.img + '") no-repeat');
 		$('#banner').css('width', data.width + 'px');
 		$('#banner').css('height', data.height + 'px');
 		

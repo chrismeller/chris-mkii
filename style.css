@@ -47,7 +47,7 @@ body {
 	width: 20px;
 	height: 19px;
 	
-	background: url('images/searchfield_leftcap.png') left no-repeat;
+	background: url('http://c3088452.r52.cf0.rackcdn.com/searchfield_leftcap.png') left no-repeat;
 	
 	float: left;
 }
@@ -56,7 +56,7 @@ body {
 	width: 10px;
 	height: 19px;
 	
-	background: url('images/searchfield_rightcap.png') right no-repeat;
+	background: url('http://c3088452.r52.cf0.rackcdn.com/searchfield_rightcap.png') right no-repeat;
 	
 	float: left;
 }
@@ -68,7 +68,7 @@ body {
 	border: 0;
 	margin: 0;
 	
-	background: url('images/searchfield_repeat.png') repeat-x;
+	background: url('http://c3088452.r52.cf0.rackcdn.com/searchfield_repeat.png') repeat-x;
 	
 	color: #adadad;
 }
@@ -89,7 +89,7 @@ body {
 	display: block;
 	width: 284px;
 	height: 54px;
-	background: url('images/logo.png') no-repeat;
+	background: url('http://c3088452.r52.cf0.rackcdn.com/logo.png') no-repeat;
 }
 
 #site-title span {
@@ -147,7 +147,7 @@ body {
 	height: 16px;
 	width: 16px;
 	
-	background: url('images/cc_logo.png') no-repeat;
+	background: url('http://c3088452.r52.cf0.rackcdn.com/cc_logo.png') no-repeat;
 	
 	text-indent: -9999px;
 	

@@ -22,6 +22,7 @@
 			var CWM = {};
 			CWM.template_directory = '<?php Site::out_url( 'theme' ); ?>';
 			CWM.base_url = '<?php Site::out_url( 'habari' ); ?>';
+			CWM.cdn_url = 'http://c3088452.r52.cf0.rackcdn.com/';
 		</script>
 		
 		<?php $theme->header(); ?>
