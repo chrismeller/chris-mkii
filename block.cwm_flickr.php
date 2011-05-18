@@ -27,7 +27,7 @@
 								$url = $item['thumbnail'];
 							}
 							
-							echo '<li><a href="' . HTML::chars( $item['link'] ) . '" title="' . HTML::chars( $item['title'] ) . '"><img src="' . HTML::chars( $url ) . '" alt="' . HTML::chars( $item['title'] ) . '"></a></li>';
+							echo '<li><a href="' . HTML::chars( $item['link'] ) . '" class="dotipsy rightwards" title="' . HTML::chars( $item['title'] ) . '"><img src="' . HTML::chars( $url ) . '" alt="' . HTML::chars( $item['title'] ) . '"></a></li>';
 						}
 						echo '</ul>';
 					
