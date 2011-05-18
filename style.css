@@ -101,6 +101,9 @@ body {
 	
 	display: block;
 	overflow: hidden;
+
+	width: 950px;
+	height: 250px;
 	
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
