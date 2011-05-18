@@ -6,6 +6,20 @@
 		// do nothing, just return
 		return;
 	}
+	
+	// we have some reformatting to do first
+	$commits = array();
+	$repos = array();
+	
+	foreach ( $content->stats as $week => $point ) {
+		
+		$commits[ $week ] = '[' . $week . ', ' . $point->commits . ']';
+		$repos[ $week ] = '[' . $week . ', ' . $point->repos . ']';
+		
+	}
+	
+	$commits = '[' . implode( ', ', $commits ) . ']';
+	$repos = '[' . implode( ', ', $repos ) . ']';
 
 ?>
 
@@ -13,10 +27,16 @@
 	
 	<div class="wrap">
 	
-		<p>
-			So far this week I have made <?php echo $content->stats->commits . ' ' . _n( 'commit', 'commits', $content->stats->commits ); ?> to <?php echo $content->stats->repos . ' ' . _n( 'repo', 'repos', $content->stats->repos ); ?>.
-		</p>
+		<div id="commit-stats-placeholder" style="width:210px;height:75px;"></div>
 	
 	</div>
 	
 </div>
+
+<script type="text/javascript">
+	$( function() {
+		var commits = <?php echo $commits; ?>;
+		var repos = <?php echo $repos; ?>;
+		$.plot( $('#commit-stats-placeholder'), [ commits, repos ] );
+	} );
+</script>

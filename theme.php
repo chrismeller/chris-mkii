@@ -213,6 +213,8 @@
 				Stack::add( 'template_header_javascript', Site::get_url( 'theme' ) . '/tipsy/javascripts/jquery.tipsy.js', 'tipsy', 'jquery' );
 				Stack::add( 'template_stylesheet', array( Site::get_url( 'theme' ) . '/tipsy/stylesheets/tipsy.css', 'screen' ), 'tipsy' );
 				
+				Stack::add( 'template_header_javascript', Site::get_url('theme') . '/js/flot/jquery.flot.min.js', 'flot', 'jquery' );
+				
 			}
 			
 		}
@@ -689,9 +691,11 @@
 			else {
 				
 				try {
-					$stats = file_get_contents( 'http://tools.chrismeller.com/commitstats/total_this_year' );
+					$stats = file_get_contents( 'http://tools.chrismeller.com/commitstats/stats_last_52' );
 				
 					$stats = json_decode( $stats );
+					
+					Cache::set( 'cwm:commit_stats', $stats, HabariDateTime::HOUR, true );
 				}
 				catch ( RemoteRequest_Timeout $e ) {
 					
@@ -699,8 +703,6 @@
 					$stats = Cache::get( 'cwm:commit_stats' );
 					
 				}
-				
-				Cache::set( 'cwm:commit_stats', $stats, HabariDateTime::HOUR, true );
 			}
 			
 			$block->stats = $stats;
