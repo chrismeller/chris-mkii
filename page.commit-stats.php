@@ -19,12 +19,21 @@
 	
 	// figure out the last update
 	$last_update = Cache::get( 'cwm:commit_stats:last_update' );
-	$last_update = HabariDateTime::date_create( $last_update );
-	$last_update = $last_update->format( 'F j, Y' ) . ' at ' . $last_update->format( 'g:i a' );
+	
+	if ( $last_update == null ) {
+		$last_update = 'never';
+	}
+	else {
+		$last_update = HabariDateTime::date_create( $last_update );
+		$last_update = $last_update->format( 'F j, Y' ) . ' at ' . $last_update->format( 'g:i a' );
+	}
 	
 	// get our stats from the cache
 	$last_52 = Cache::get( 'cwm:commit_stats:stats_last_52' );
 	
+	if ( $last_52 == null ) {
+		$last_52 = array();
+	}
 	
 	// we have some reformatting to do first
 	$last_52_commits = array();
