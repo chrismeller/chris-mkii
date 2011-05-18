@@ -17,7 +17,7 @@
 					</div>
 					
 					<div id="the-moose" class="span-2 last">
-						<img src="<?php Site::out_url( 'theme' ); ?>/images/the_moose.png" alt="Moose" title="Mooses &lt;3!">
+						<img src="https://c3088452.ssl.cf0.rackcdn.com/the_moose.png" alt="Moose" title="Mooses &lt;3!">
 					</div>
 					
 				</div> <?php /* div#colophon */ ?>
