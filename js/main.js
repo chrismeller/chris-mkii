@@ -24,4 +24,18 @@ $(document).ready( function () {
 		
 	} );
 	
+	// tipsy!
+	$('.dotipsy').each( function () {
+		var gravity = 'n';	// default to north
+		
+		if ( $(this).hasClass( 'leftwards' ) ) {
+			gravity = 'e';
+		}
+		else if ( $(this).hasClass( 'rightwards' ) ) {
+			gravity = 'w';
+		}
+		
+		$(this).tipsy( { gravity: gravity } );
+	} );
+	
 } );
