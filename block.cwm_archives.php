@@ -35,8 +35,9 @@
 							$url = URL::get( 'display_entries_by_date', array( 'year' => $date->format('Y'), 'month' => $date->format('m') ) );
 							
 							$text = $date->format('F') . ', ' . $date->format('Y');
+							$title = _t( _n( '%d Post', '%d Posts', $archive->ct ), array( $archive->ct ) );
 							
-							echo '<li ' . $class . '><a href="' . $url . '" title="' . $text . '">' . $text . '</a><span class="post-count">' . $archive->ct . '</span></li>';
+							echo '<li ' . $class . '><a href="' . $url . '" title="' . $text . '">' . $text . '</a><span class="post-count dotipsy leftwards" title="' . $title . '">' . $archive->ct . '</span></li>';
 							
 							$i++;
 							
