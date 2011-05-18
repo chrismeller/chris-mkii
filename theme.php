@@ -438,7 +438,6 @@
 			$block_list[ 'cwm_archives' ] = _t( 'CWM Archives' );
 			$block_list[ 'cwm_flickr' ] = _t( 'CWM Flickr' );
 			$block_list[ 'cwm_social_icons' ] = _t( 'CWM Social Icons' );
-			$block_list[ 'cwm_commit_stats' ] = _t( 'CWM Commit Stats' );
 			
 			return $block_list;
 			
@@ -680,32 +679,6 @@
 			echo json_encode( $header );
 			
 			return true;
-			
-		}
-		
-		public function action_block_content_cwm_commit_stats ( $block, $theme ) {
-			
-			if ( Cache::has( 'cwm:commit_stats' ) ) {
-				$stats = Cache::get( 'cwm:commit_stats' );
-			}
-			else {
-				
-				try {
-					$stats = file_get_contents( 'http://tools.chrismeller.com/commitstats/stats_last_52' );
-				
-					$stats = json_decode( $stats );
-					
-					Cache::set( 'cwm:commit_stats', $stats, HabariDateTime::HOUR, true );
-				}
-				catch ( RemoteRequest_Timeout $e ) {
-					
-					// try to get the cache value anyway - if it's null we'll just ignore it later
-					$stats = Cache::get( 'cwm:commit_stats' );
-					
-				}
-			}
-			
-			$block->stats = $stats;
 			
 		}
 		
