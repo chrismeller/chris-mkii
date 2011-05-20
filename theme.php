@@ -585,15 +585,17 @@
 		
 		public function comments_link ( $post ) {
 			
-			if ( $post->info->comments_disabled ) {
-				return false;
-			}
-			
 			if ( $post->comments->approved->count > 0 ) {
+				// if there are already comments, always display the link
 				return '<a href="' . $post->permalink . '#comments" title="' . _t( 'Comment on %s', array( $post->title ) ) . '">' . _t( _n( '%d Comment', '%d Comments', $post->comments->approved->count ), array( $post->comments->approved->count ) ) . '</a>';
 			}
-			else {
+			else if ( $post->info->comments_disabled != true ) {
+				// if there are no comments but they're open, display the link
 				return '<a href="' . $post->permalink . '#comments" title="' . _t( 'Comment on %s', array( $post->title ) ) . '">' . _t( 'Leave a comment' ) . '</a>';
+			}
+			else {
+				// if there aren't comments and they're disabled, nothing
+				return false;
 			}
 			
 		}

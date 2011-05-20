@@ -31,7 +31,7 @@
 		$meta[] = '<span class="tags">' . $tags . '</span>';
 	}
 	
-	if ( $post->info->comments_disabled != true ) {
+	if ( $theme->comments_link( $post ) != false ) {
 		$meta[] = '<span class="comments-link">' . $theme->comments_link( $post ) . '</span>';
 	}
 	
