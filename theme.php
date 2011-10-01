@@ -482,59 +482,6 @@
 			
 		}
 		
-		public function __call( $function, $params )
-		{
-			if ( strpos( $function, 'act_' ) === 0 ) {
-				// The first parameter is an array, get it
-				if ( count( $params ) > 0 ) {
-					list( $user_filters )= $params;
-				}
-				else {
-					$user_filters = array();
-				}
-				$action = substr( $function, 4 );
-				Plugins::act( 'theme_action', $action, $this, $user_filters );
-			}
-			else {
-				$purposed = 'output';
-				if ( preg_match( '/^(.*)_(return|end)$/', $function, $matches ) ) {
-					$purposed = $matches[2];
-					$function = $matches[1];
-				}
-				array_unshift( $params, $function, $this );
-				$result = call_user_func_array( array( 'Plugins', 'theme' ), $params );
-				switch ( $purposed ) {
-					case 'return':
-						return $result;
-					case 'end':
-						echo end( $result );
-						return end( $result );
-					default:
-						$output = implode( '', ( array ) $result );
-						//echo $output;
-						return $output;
-				}
-			}
-		}
-		
-		public function theme_header ( $theme ) {
-			
-			echo parent::theme_header( $theme );
-			
-		}
-		
-		public function theme_footer ( $theme ) {
-			
-			echo parent::theme_footer( $theme );
-			
-		}
-		
-		public function theme_area($theme, $area, $context = null, $scope = null) {
-			
-			echo parent::theme_area( $theme, $area, $context, $scope );
-			
-		}
-		
 		public function posted_on ( $post ) {
 			
 			$date = $post->pubdate->format( 'F j, Y' );
