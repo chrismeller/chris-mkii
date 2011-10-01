@@ -27,7 +27,7 @@
 		
 		<?php
 		
-			$theme->footer();
+			echo $theme->footer();
 			
 			/* In order to see DB profiling information:
 			 * 1. Insert this line in your config file: define( 'DEBUG', true );

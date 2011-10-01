@@ -25,7 +25,7 @@
 			CWM.cdn_url = 'https://c3088452.ssl.cf0.rackcdn.com/';
 		</script>
 		
-		<?php $theme->header(); ?>
+		<?php echo $theme->header(); ?>
 
 	</head>
 	
@@ -49,7 +49,7 @@
 				
 				<div id="menu" class="prepend-2 span-8" role="navigation">
 					<?php
-						$theme->area('menu');
+						echo $theme->area('menu');
 					?>
 				</div>
 				
