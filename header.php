@@ -1,8 +1,8 @@
 <?php if ( !defined( 'HABARI_PATH' ) ) { die('No direct access'); } ?>
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="<?php echo $locale; ?>">
 	<head>
-		<meta charset="utf-8">
+		<meta charset="<?php echo $charset; ?>">
 		<title><?php echo $title; ?></title>
 		
 		<meta name="generator" content="Habari <?php echo Version::HABARI_VERSION; ?>">
