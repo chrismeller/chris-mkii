@@ -463,6 +463,10 @@ h3.block-title {
 	background: url('https://c3088452.ssl.cf0.rackcdn.com/habari-grey.png') center no-repeat;
 }
 
+#social-icons #buzzdata {
+	background: url('https://c3088452.ssl.cf0.rackcdn.com/buzzdata-grey.png') center no-repeat;
+}
+
 #social-icons #github:hover {
 	background: url('https://c3088452.ssl.cf0.rackcdn.com/github-color.png') center no-repeat;
 }
@@ -475,21 +479,8 @@ h3.block-title {
 	background: url('https://c3088452.ssl.cf0.rackcdn.com/habari-color.png') center no-repeat;
 }
 
-/* now the special social icon - commits */
-#social-icons #commits-this-week span {
-	display: block;
-	text-align: right;
-
-	font-size: 1.8em;
-	color: #959595;
-}
-
-#social-icons #commits-this-week:hover {
-	text-decoration: none;
-}
-
-#social-icons #commits-this-week:hover span {
-	color: #3a6c93;
+#social-icons #buzzdata:hover {
+	background: url('https://c3088452.ssl.cf0.rackcdn.com/buzzdata-color.png') center no-repeat;
 }
 
 #archives ul {
